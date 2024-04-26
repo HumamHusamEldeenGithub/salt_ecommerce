@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+
+  <body>
+    <div id="custom-nav"></div>
+
+    <main>
+      <div class="container p-5">
+        <h2>Checkout</h2>
+        <!-- Error Alert -->
+        <div class="alert alert-danger" id="errorAlert" style="display: none">
+          Please fill in all required fields.
+        </div>
+        <form id="checkoutForm">
+          <div class="form-group py-2">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Enter your name"
+            />
+          </div>
+          <div class="form-group py-2">
+            <label for="address">Address:</label>
+            <textarea
+              class="form-control"
+              id="address"
+              placeholder="Enter your address"
+            ></textarea>
+          </div>
+          <div class="form-group py-2">
+            <label for="payment">Payment Method:</label>
+            <select class="form-control" id="payment">
+              <option>Select Payment Method</option>
+              <option>Credit Card</option>
+              <option>PayPal</option>
+              <option>Stripe</option>
+            </select>
+          </div>
+          <div class="form-group py-2">
+            <label for="card">Credit Card Number:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="card"
+              placeholder="Enter your credit card number"
+            />
+          </div>
+          <div class="form-group py-2">
+            <label for="expiry">Expiry Date:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="expiry"
+              placeholder="MM/YY"
+            />
+          </div>
+          <div class="form-group py-2">
+            <label for="cvv">CVV:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cvv"
+              placeholder="Enter CVV"
+            />
+          </div>
+          <div class="checkout-summary py-2">
+            <h4>Order Summery</h4>
+            <div class="row">
+              <ul id="checkout-summary-ul" class="list-group"></ul>
+            </div>
+            <div
+              class="d-flex flex-column justify-content-end align-items-end pt-5"
+            >
+              <h4>
+                Total: $
+                <span id="summery-total-price">0</span>
+              </h4>
+              <button
+                type="submit"
+                class="btn btn-outline-dark d-flex align-items-center"
+              >
+                <i class="bi bi-cash"></i> Place Order
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div
+        class="modal fade"
+        id="confirmation-modal"
+        tabindex="-1"
+        aria-labelledby="confirmation-modalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="confirmation-modalLabel">
+                Order has been requested
+              </h1>
+            </div>
+            <div class="modal-body">
+              Thank you for submitting you order!, you will receive a copy of
+              the order confirmation message
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="window.location.href='/'"
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="custom-footer"></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+  </body>
+</html>
