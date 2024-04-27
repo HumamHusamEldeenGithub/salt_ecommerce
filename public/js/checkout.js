@@ -12,15 +12,18 @@ function createSummeryItem(product) {
           />
         </div>
         <div
-          class="col-md-9 col-sm col-12 d-flex flex-column justify-content-center"
+          class="col-md-5 col-sm col-12 d-flex flex-column justify-content-center"
         >
           <h5 class="card-title">
           ${product.name}
           </h5>
 
         </div>
+        <div class="col-md col-sm col-12 d-flex justify-content-center align-items-center">
+        <p class="card-text"><strong>Size:</strong>  <span class="size-label">${product.size}</span></p>
+      </div>
         <div
-          class="col-md col-sm col-12 d-flex justify-content-center align-items-center"
+          class="col-md col-sm col-12 d-flex justify-content-end align-items-center"
         >
         <p class="card-text"><b>$${product.price}</b></p>
         </div>

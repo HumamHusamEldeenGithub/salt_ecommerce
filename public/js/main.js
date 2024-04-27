@@ -26,7 +26,8 @@ let products = [
 
 function createProductCard(product) {
   return `
-  <div class="card product-card ${product.classes}" data-product-id="${product.id}">
+  <div class="card product-card ${product.classes}" data-product-id="${product.id}" 
+  onclick="window.location.href='product?product_id=${product.id}'">
     <img class="product-card-image" src="${product.image}" alt="Product Image">
     <div class="card-body">
       <h5 class="card-title">${product.name}</h5>
@@ -99,6 +100,7 @@ function addToCart(event, productId) {
     name: product.name,
     price: product.price.sellingPrice,
     image: product.image,
+    size: getSelectedSize(),
   });
 
   setCartProducts(cartProducts);
@@ -110,6 +112,17 @@ function addToCart(event, productId) {
   try {
     renderCart();
   } catch (err) {}
+}
+
+function getSelectedSize() {
+  var selectedSize = "S"; // default size
+  var sizeOptions = document.querySelectorAll('.form-check-input');
+  for (var i = 0; i < sizeOptions.length; i++) {
+    if (sizeOptions[i].checked) {
+      selectedSize = sizeOptions[i].value;
+    }
+  }
+  return selectedSize;
 }
 
 function setCartProducts(products) {
@@ -143,7 +156,7 @@ function getCartTotalPrice() {
   for (var i = 0; i < products.length; i++) {
     totalPrice += products[i].price;
   }
-  return totalPrice;
+  return totalPrice.toFixed(2);
 }
 
 function clearCart(){
@@ -193,22 +206,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const products = document.querySelectorAll(".product-card");
-  products.forEach((product) => {
-    product.addEventListener("click", function () {
-      const productId = product.getAttribute("data-product-id");
-      window.location.href = `product.html?product_id=${productId}`;
-    });
-  });
-});
-
 function showAlert(alertMsg) {
   const alertElement = document.getElementById("alert-element");
   alertElement.innerHTML = alertMsg;
   alertElement.classList.remove("display-none");
 
-  setTimeout(() => alertElement.classList.add("display-none"), 4000);
+  setTimeout(() => alertElement.classList.add("display-none"), 2500);
 }
 
 function delay(ms) {

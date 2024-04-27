@@ -18,7 +18,7 @@ main {
 .banner-section {
   position: relative;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(./public/banner.jpg);
+  url(../images/banner.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -273,4 +273,37 @@ main {
   color: black;
   font-weight: bold;
   box-shadow: rgba(149, 157, 165, 0.2) 3px 5px 4px 0px;
+}
+
+.size-options {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.size-option {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.form-check-input {
+  display: none;
+}
+
+.size-label {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.size-label:hover {
+  background-color: #f0f0f0;
+}
+
+.form-check-input:checked + .size-label {
+  background-color: #212529;
+  color: #fff;
+  border-color: #212529;
 }
